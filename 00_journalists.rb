@@ -46,9 +46,9 @@ def length_5(j_tab)
   end
   for i in "ROUUUUUULEMENT DE TABOUREEEEEEEEEETS !!!\n\n\n\n. . . . . . . . . . . . . . .\n\n\n. . . . . . . . . . . . . . .\n\n\nAlors comme ça on attend ?\n\n\n\n".chars.to_a
     print i
-    sleep 0
+    sleep 0.1
   end
-  return lgt5
+  puts "Il y en a #{lgt5}"
 end
 
 def upcase_start(j_tab)
@@ -102,17 +102,28 @@ def bruce(j_tab)
   gets.chomp
   j_tab.length.times do |index|
     if j_tab[index] == "@epenser"
-      puts "DANS TON CUL !"
+      for i in "DANS TON *** !\n".chars.to_a
+        print i
+        sleep 0.2
+      end
+      puts "La prochaine fois que tu me fais galérer autant alors que ya largement moins emmerdant, TÂCHES D'Y PENSER ! Bruce est position N°#{index}\n\n"
+      puts "Appuyez sur 'Entrée'"
       gets.chomp
-      puts "La prochaine fois que tu me fais galérer autant alors que ya largement moins emmerdant, TÂCHES D'Y PENSER ! Bruce est position N°#{index}"
     end  
     end 
-end
+  end
 
-
-sortArrayByGroupSize(j_tab)
-
-def sortArrayByGroupSize (j_tab)
+def sortArrayByGroupSize(j_tab)
+  puts "VIII- Sors-moi une répartition des handle par taille de ces derniers. "
+  gets.chomp
+  gets.chomp
+  gets.chomp
+  gets.chomp
+  for i in "Ça va te tuer un s'il te plaît ? SÉRIEUSEMENT !!\n\n".chars.to_a
+    print i
+    sleep 0.1
+  end
+  gets.chomp
   tmpTab = j_tab.sort_by(&:length)
   sizeString = tmpTab[0].length
   tmpSizeString = sizeString
@@ -127,6 +138,15 @@ def sortArrayByGroupSize (j_tab)
     end
     puts tmpTab[index]
   end
+  puts ""  
+  puts "Apuzez sul lentray"
+    gets.chomp
+    puts "Ekzus' zé un peu (HIC) bu..."
+    gets.chomp
+    puts "  !! CAPUT DRACONIS !!"
+    puts "                      GAME OVER"
+    puts "                     Insert coin"
+
 end
 
 
@@ -135,17 +155,18 @@ end
 def perform
   txt
   j_tab = jlist
- # jlist_lgt(j_tab)
-  #sht_hnd(j_tab)
-  #puts length_5(j_tab)
-  #puts "\n"
-  #puts "Appuyez sur 'Entrée'\n"
-  #puts "il y a #{upcase_start(j_tab)} de mail qui commencent par une MAJ !\n\n"
-  #puts ""
-  #puts "Appuyez sur 'Entrée'"
-  #ord_alp(j_tab)
-  #ord_lgt(j_tab)
+  jlist_lgt(j_tab)
+  sht_hnd(j_tab)
+  puts length_5(j_tab)
+  puts "\n"
+  puts "Appuyez sur 'Entrée'\n"
+  puts "il y a #{upcase_start(j_tab)} de mail qui commencent par une MAJ !\n\n"
+  puts ""
+  puts "Appuyez sur 'Entrée'"
+  ord_alp(j_tab)
+  ord_lgt(j_tab)
   bruce(j_tab)
+  sortArrayByGroupSize(j_tab)
 end
 
 perform
