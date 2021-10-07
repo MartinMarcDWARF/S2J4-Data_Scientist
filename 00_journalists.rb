@@ -100,13 +100,13 @@ end
 def bruce(j_tab)
   puts "Quelle est la position de Bruce Benamran dans la liste ?"
   gets.chomp
-  j_tab.length.times do |index|
-    if j_tab[index] == "@epenser"
+  j_tab.length.times do |index2|
+    if j_tab[index2] == "@epenser"
       for i in "DANS TON *** !\n".chars.to_a
         print i
         sleep 0.2
       end
-      puts "La prochaine fois que tu me fais galérer autant alors que ya largement moins emmerdant, TÂCHES D'Y PENSER ! Bruce est position N°#{index}\n\n"
+      puts "La prochaine fois que tu me fais galérer autant alors que ya largement moins emmerdant, TÂCHES D'Y PENSER ! Bruce est position N°#{index2}\n\n"
       puts "Appuyez sur 'Entrée'"
       gets.chomp
     end  
@@ -155,16 +155,16 @@ end
 def perform
   txt
   j_tab = jlist
-  jlist_lgt(j_tab)
-  sht_hnd(j_tab)
-  puts length_5(j_tab)
-  puts "\n"
-  puts "Appuyez sur 'Entrée'\n"
-  puts "il y a #{upcase_start(j_tab)} de mail qui commencent par une MAJ !\n\n"
-  puts ""
-  puts "Appuyez sur 'Entrée'"
-  ord_alp(j_tab)
-  ord_lgt(j_tab)
+  #jlist_lgt(j_tab)
+  #sht_hnd(j_tab)
+  #puts length_5(j_tab)
+  #puts "\n"
+  #puts "Appuyez sur 'Entrée'\n"
+  #puts "il y a #{upcase_start(j_tab)} de mail qui commencent par une MAJ !\n\n"
+  #puts ""
+  #puts "Appuyez sur 'Entrée'"
+  #ord_alp(j_tab)
+  #ord_lgt(j_tab)
   bruce(j_tab)
   sortArrayByGroupSize(j_tab)
 end
