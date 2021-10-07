@@ -10,36 +10,35 @@ end
 def jlist_lgt(j_tab)
   gets.chomp
   puts "I- Combien y a-t-il de handle dans la liste ?\n\n"
-  for i in "Il y a exactement #{j_tab.length} allumettes dans cette boîte ;)".chars.to_a
+  for i in "Il y a exactement #{j_tab.length} allumettes dans cette boîte ;)\n\n".chars.to_a
     print i
     sleep 0.04
   end
+  puts "Appuyez sur 'Entrée'"
 end
 
 
 def sht_hnd(j_tab)
   gets.chomp
-  puts "II- Quel est le nain de cette liste ?"
-      
-    
+  puts "II- Quel est le nain de cette liste ?\n\n"
       j_tab.sort_by!(&:length)
       min_length = j_tab[0].length
       result = j_tab[0]
       j_tab.each do |element|
         element.length < min_length ? (result = element) : result
       end
-      for i in "Voici #{result} ! le digne représentant des peuplades nanesques !".chars.to_a
+      for i in "Voici #{result} ! le digne représentant des peuplades nanesques !\n\n".chars.to_a
         print i
         sleep 0.04
     end  
+    puts "Appuyez sur 'Entrée'"
   end
 
 
 def length_5(j_tab)
   lgt5 = 0
   gets.chomp
-  puts "III- Combien y-a-t'il de handle contenant 5 caractères (le @ ne compte pas pour un caractère)"
-  gets.chomp
+  puts "III- Combien y-a-t'il de handle contenant 5 caractères (le @ ne compte pas pour un caractère)\n\n"
   j_tab.length.times do |index|
     if j_tab[index].length == 6
     lgt5 += 1
@@ -47,42 +46,39 @@ def length_5(j_tab)
   end
   for i in "ROUUUUUULEMENT DE TABOUREEEEEEEEEETS !!!\n\n\n\n. . . . . . . . . . . . . . .\n\n\n. . . . . . . . . . . . . . .\n\n\nAlors comme ça on attend ?\n\n\n\n".chars.to_a
     print i
-    sleep 0.2
+    sleep 0
   end
   return lgt5
-  
 end
-
-
-
 
 def upcase_start(j_tab)
-  startuc = 0
   gets.chomp
-  puts "IV- Combien y-a-t'il de handle commençant par une MAJ ?"
-  gets.chomp
-  j_tab.select {|v| v[1] == v[1].upcase}
-    if j_tab[v].select = v[1].upcase
-      startuc += 1
-      for i in "".chars.to_a
-      print i
-      sleep 0.2
+  puts "IV- Combien commencent par une majuscule (première lettre juste après le @) ?\n\n"
+  count = 0
+  j_tab.length.times do |index|
+    if j_tab[index][1] != "_"
+      if j_tab[index][1].match(j_tab[index][1].upcase)
+        count += 1
+      end
+    else
+      if j_tab[index][2].match(j_tab[index][2].upcase)
+        count += 1
       end
     end
+  end
+  return count
 end
-
-
-
-
 
 def ord_lgt(j_tab)
   gets.chomp
   puts "VI- Trie la liste de handle par taille des handle (les plus petits en premiers, les plus grands après)\n\n"
-  for i in "Yes, my master...\n\n".chars.to_a
+  for i in "Yes, my master...\n".chars.to_a
     print i
     sleep 0.2
   end
   puts j_tab.sort_by(&:length)
+  puts "Appuyez sur 'Entrée'\n"
+  gets.chomp
   
 end
 
@@ -91,24 +87,65 @@ def ord_alp(j_tab)
   gets.chomp
   puts ""
   puts "V- Trie la liste de handle par ordre alphabétique.\n\n"
-  for i in "Dobby ne vit que pour servir le maître...".chars.to_a
+  for i in "Dobby ne vit que pour servir le maître...\n\n".chars.to_a
     print i
     sleep 0.1
   end
   puts j_tab.sort_by(&:downcase)
+  puts "\n"
+  puts "Appuyez sur 'Entrée'\n"
 end
+
+
+def bruce(j_tab)
+  puts "Quelle est la position de Bruce Benamran dans la liste ?"
+  gets.chomp
+  j_tab.length.times do |index|
+    if j_tab[index] == "@epenser"
+      puts "DANS TON CUL !"
+      gets.chomp
+      puts "La prochaine fois que tu me fais galérer autant alors que ya largement moins emmerdant, TÂCHES D'Y PENSER ! Bruce est position N°#{index}"
+    end  
+    end 
+end
+
+
+sortArrayByGroupSize(j_tab)
+
+def sortArrayByGroupSize (j_tab)
+  tmpTab = j_tab.sort_by(&:length)
+  sizeString = tmpTab[0].length
+  tmpSizeString = sizeString
+  puts ""
+  puts "[LONGUEUR] : #{sizeString}"
+  tmpTab.length.times do |index|
+    sizeString = tmpTab[index].length
+    if sizeString != tmpSizeString
+      puts ""
+      puts "[LONGUEUR] : #{sizeString}"
+      tmpSizeString = sizeString
+    end
+    puts tmpTab[index]
+  end
+end
+
 
 
 
 def perform
   txt
   j_tab = jlist
-  #jlist_lgt(j_tab)
+ # jlist_lgt(j_tab)
   #sht_hnd(j_tab)
   #puts length_5(j_tab)
-  puts upcase_start(j_tab)
-  ord_alp(j_tab)
-  ord_lgt(j_tab)
+  #puts "\n"
+  #puts "Appuyez sur 'Entrée'\n"
+  #puts "il y a #{upcase_start(j_tab)} de mail qui commencent par une MAJ !\n\n"
+  #puts ""
+  #puts "Appuyez sur 'Entrée'"
+  #ord_alp(j_tab)
+  #ord_lgt(j_tab)
+  bruce(j_tab)
 end
 
 perform
